@@ -11,4 +11,5 @@ n=parse(Int64,readline())
 for i in 0:n-1
 print(fibonacci(i)," ")
 end
+
 end
