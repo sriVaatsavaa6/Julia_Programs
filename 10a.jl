@@ -1,3 +1,6 @@
+#import Pkg;
+#Pkg.add("plots")
+
 begin
 using Plots
 x= -10:0.1:10
@@ -11,3 +14,7 @@ label = "y=x^2",
 legend = :topright
 )
 end
+
+
+
+
