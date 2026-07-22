@@ -1,15 +1,15 @@
 begin
-println("Enter a line of text:")
-text=readline()
-letter_frequency=Dict{Char,Int}()
-for char in lowercase(text)
-if isletter(char)
-letter_frequency[char]=
-get(letter_frequency,char,0)+1
+println("Enter text:")
+text = lowercase(readline())
+freq = Dict{Char,Int}()
+
+for c in text
+    if isletter(c)
+        freq[c] = get(freq,c,0) + 1
+    end
 end
-end
-for(letter,frequency)in
-sort(collect(letter_frequency))
-println("Letter $letter occurs $frequency times")
+
+for (c,n) in sort(collect(freq))
+    println("$c = $n")
 end
 end
