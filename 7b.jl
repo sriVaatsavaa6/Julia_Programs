@@ -1,16 +1,17 @@
 begin
-file_path=("D:\\akshay.txt")
-file_contents=read(file_path,String)
-words=split(lowercase(file_contents),r"\W+")
-unique_words=Set{String}()
-for word in words
-if ! isempty(word)
-push!(unique_words,word)
+file = open("D:/akshay.txt","r")
+words = Set{String}()
+
+for line in eachline(file)
+    for word in split(lowercase(line))
+        push!(words, word)
+    end
 end
-end
-sorted_words=sort(collect(unique_words))
-println("Unique words found in the file:")
-for word in sorted_words
-println(word)
+
+close(file)
+
+println("Unique words are:")
+for word in sort(collect(words))
+    println(word)
 end
 end
