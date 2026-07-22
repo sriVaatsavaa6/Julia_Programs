@@ -1,28 +1,15 @@
 begin
-function pop_artist()
-artist=Vector{String}(undef,10)
+artists=[readline() for i in 1:10]
 votes=zeros(Int,10)
-println("Enter 10 artist names:")
-for i in 1:10
-artist[i]=readline()
-end
-println("Enter votes(1-10), type end to stop:")
+
+println("Enter votes(1-10), -1 to stop:")
 while true
-vote=readline()
-if vote == "end"
-break
+    n=parse(Int,readline())
+    n==-1 && break
+    votes[n]+=1
 end
-n=tryparse(Int,vote)
-if n!=nothing && 1<=n<=10
-votes[n]+=1
-else
-println("Invalid Vote")
-end
-end
-maxvote=maximum(votes)
-index=argmax(votes)
-println("Most popular artist:",artist[index])
-println("Votes=",maxvote)
-end
-pop_artist()
+
+i=argmax(votes)
+println("Most popular artist:",artists[i])
+println("Votes=",votes[i])
 end
