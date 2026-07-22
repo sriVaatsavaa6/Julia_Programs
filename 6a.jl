@@ -1,18 +1,16 @@
 begin
-function freq_letter(text::String)
-freq=Dict{Char,Int}()
-text=lowercase(text)
-for char in text
-if 'a' <= char <= 'z'
-freq[char] = get(freq,char,0)+1
+println("Enter text:")
+text = lowercase(readline())
+freq = Dict{Char,Int}()
+
+for c in text
+    if isletter(c)
+        freq[c] = get(freq,c,0) + 1
+    end
 end
+
+for c in 'a':'z'
+    println("$c = ", get(freq,c,0))
 end
-for char in 'a':'z'
-count=get(freq,char,0)
-println("$char=$count")
-end
-end
-println("Enter a text:")
-text=readline()
-freq_letter(text)
+
 end
